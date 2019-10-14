@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { SesionUsuarioService } from '../servicios/sesion-usuario/sesion-usuario.service';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -9,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class InicioSesionComponent implements OnInit {
   formulario: FormGroup;
 
-  constructor(private frmBuilder: FormBuilder){
+  constructor(private frmBuilder: FormBuilder, private router: Router, private sesionUsuario:SesionUsuarioService){
     this.formulario = this.frmBuilder.group({
       correo:["",[Validators.required, Validators.pattern("[^@]*@[^@]*")]],
       contrasena:["", Validators.required]
@@ -20,9 +22,10 @@ export class InicioSesionComponent implements OnInit {
   }
 
   onSubmit(formulario){
-    if(formulario.value.correo == "armandovn@outlook.com"){
-      if(formulario.value.contrasena == "123")
-        alert("Ingresaste con exito!");
+    if(this.sesionUsuario.login(formulario.value.correo, formulario.value.contrasena)){
+      this.router.navigate(['/cursos']);
+    }else{
+      alert("Correo o contreseña incorrectos!");
     }
   }
 }
