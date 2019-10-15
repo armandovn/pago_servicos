@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario-registro',
@@ -7,23 +8,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./formulario-registro.component.css']
 })
 export class FormularioRegistroComponent implements OnInit {
-  formulario: FormGroup;
+  public registerForm: FormGroup;
 
-  constructor(private frmBuilder: FormBuilder){
-    this.formulario = this.frmBuilder.group({
-      correo:["",[Validators.required, Validators.pattern("[^@]*@[^@]*")]],
-      contrasena:["", Validators.required]
+  constructor(private router: Router,private frmBuilder: FormBuilder){ }
+
+  ngOnInit() {
+    this.registerForm = this.frmBuilder.group({
+      nombre:['', Validators.required],
+      ap_paterno:['', Validators.required],
+      ap_materno:['', Validators.required],
+      correo:['',[Validators.required, Validators.pattern("[^@]*@[^@]*")]],
+      contrasena:['', Validators.required],
+      contrasena2:['', Validators.required],
+      telefono:['', Validators.required],
+      sexo:['', Validators.required]
     });
   }
 
-  ngOnInit() {
-  }
-
-  onSubmit(formulario){
-    if(formulario.value.correo == "armandovn@outlook.com"){
-      if(formulario.value.contrasena == "123")
-        alert("Ingresaste con exito!");
-    }
+  onSubmit(){
+    alert("Registro realizado con exito!");
   }
   
 }

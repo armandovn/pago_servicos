@@ -3,15 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormularioRegistroComponent } from './formulario-registro/formulario-registro.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 import { CursosComponent } from './cursos/cursos.component';
+import { CursosSinLogInComponent } from './cursos-sin-log-in/cursos-sin-log-in.component';
 import { ComprobantesComponent } from './comprobantes/comprobantes.component';
-
+import { AuthorizatedGuard } from "./core/guards/authorizated.guard";
 
 const routes: Routes = [
-  { path: '', component: CursosComponent },
   { path: 'registro', component: FormularioRegistroComponent },
   { path: 'inicioSesion', component: InicioSesionComponent },
-  { path: 'cursos', component: CursosComponent },
+  { path: 'home', component: CursosComponent, canActivate: [ AuthorizatedGuard ]},
   { path: 'comprobantes', component: ComprobantesComponent },
+  { path: 'cursos', component: CursosSinLogInComponent },
+  { path: '', redirectTo: '/cursos', pathMatch: 'full' },
   { path: '**', redirectTo: '/cursos'}
 ];
 

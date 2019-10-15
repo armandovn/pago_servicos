@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SesionUsuarioService } from '../servicios/sesion-usuario/sesion-usuario.service';
 // Libreria utilizada para la generacion de PDF's
 import * as jsPDF from 'jspdf';
 
@@ -12,19 +11,13 @@ export class TarjetaCursoComponent implements OnInit {
 
   // "curso" es un objeto que recibe la data de cada curso.
   @Input() curso: any;
-  @Input() inicio_sesion: Boolean;
   inscripcion: boolean = false;
 
   protected estado1: Boolean = false;
 
-  constructor(protected sesionUsuario: SesionUsuarioService) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  ngOnChanges(){
-    this.estado1 = this.sesionUsuario.changeStatus(this.estado1);
-    console.log('Estado sesion hija ', this.estado1);
   }
 
   descargarFormatoInscripcion(){

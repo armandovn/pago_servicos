@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SesionUsuarioService } from '../servicios/sesion-usuario/sesion-usuario.service';
 import { CursosService } from '../servicios/cursos/cursos.service';
+import {StorageService} from "../core/services/storage.service";
+import {User} from "../core/models/user.model";
+import { AuthenticationService } from '../servicios/autenticacion/authentication.service';
 
 @Component({
   selector: 'app-cursos',
@@ -9,19 +12,21 @@ import { CursosService } from '../servicios/cursos/cursos.service';
 })
 export class CursosComponent implements OnInit {
 
-  protected estado: Boolean = false;
+  public user: User;
   public cursos: any;
 
-  constructor(protected sesionUsuario: SesionUsuarioService, cursosSerive: CursosService) { 
-    this.cursos = cursosSerive.obtenerTodosLosCursos();
-  }
+  constructor(private cursosService: CursosService,
+              private storageService: StorageService,
+              private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
+    this.cursos = this.cursosService.obtenerTodosLosCursos();
+    this.user = this.storageService.getCurrentUser();
   }
 
-  changeSession(){
-    this.estado = this.sesionUsuario.changeStatus(this.estado);
-    console.log('Estado sesion padre ', this.estado);
+  logout(){
+    this.authenticationService.logout().subscribe(
+      response => {if(response) {this.storageService.logout();}}
+    );
   }
-
 }

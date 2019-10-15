@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http';
 
 // Components
 import { AppComponent } from './app.component';
@@ -19,6 +20,11 @@ import { Routing } from './app-routing.module';
 import { ComprobantesComponent } from './comprobantes/comprobantes.component';
 import { ComprobanteComponent } from './comprobante/comprobante.component';
 
+// Core
+import {CoreModule} from "./core/core.module";
+import { CursosSinLogInComponent } from './cursos-sin-log-in/cursos-sin-log-in.component';
+import { TarjetaCursoSinLogInComponent } from './tarjeta-curso-sin-log-in/tarjeta-curso-sin-log-in.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,10 +35,14 @@ import { ComprobanteComponent } from './comprobante/comprobante.component';
     TarjetaCursoComponent,
     CursosComponent,
     ComprobantesComponent,
-    ComprobanteComponent
+    ComprobanteComponent,
+    CursosSinLogInComponent,
+    TarjetaCursoSinLogInComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    CoreModule,
     FormsModule,
     Routing,
     ReactiveFormsModule

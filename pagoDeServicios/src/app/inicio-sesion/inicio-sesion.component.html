@@ -1,5 +1,5 @@
 <div class="container contenedor-padre">
-    <form [formGroup]="formulario" (submit)="onSubmit(formulario)">
+    <form [formGroup]="loginForm" (submit)="onSubmit()">
         <div class="form-group">
             <label for="correo">Correo Electronico:</label>
             <input formControlName="correo" type="email" class="form-control" id="correo" placeholder="Correo">

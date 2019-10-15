@@ -8,7 +8,7 @@
     <!-- Al dar click en inscribirse angular debera validar si el usuario ha iniciado sesion o no
             si no ha inicia sesion debera aparecer un mensaje de inicio de sesion, si ya inicio sesion
             debera seguir con el proceso de inscripcion.-->
-    <a (click)="descargarTemario()" class="card-link">Temario</a>
+    <a href="{{ curso.temario }}" class="card-link" target="_blank">Temario</a>
     <div *ngIf="inscripcion" class="subir-archivo">
       <label for="exampleFormControlFile">Subir comprobante de pago:</label>
       <input type="file" class="form-control-file" id="exampleFormControlFile">

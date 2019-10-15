@@ -1,5 +1,5 @@
 <div class="container contenedor-padre">
-    <form [formGroup]="formulario" (submit)="onSubmit(formulario)">
+    <form [formGroup]="registerForm" (submit)="onSubmit()">
         <div class="form-group">
             <label for="nombre">Nombre:</label>
             <input formControlName="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">
@@ -7,12 +7,14 @@
         </div>
         <div class="form-group">
             <label for="ap-paterno">Apellido Paterno:</label>
-            <input formControlName="ap_paterno" type="text" class="form-control" id="ap-paterno" placeholder="Apellido Paterno">
+            <input formControlName="ap_paterno" type="text" class="form-control" id="ap-paterno"
+                placeholder="Apellido Paterno">
             <small id="ap-paterno" class="form-text text-muted">Apellido que aparecera en la lista del curso</small>
         </div>
         <div class="form-group">
             <label for="ap-materno">Apellido Materno:</label>
-            <input formControlName="ap_materno" type="text" class="form-control" id="ap-materno" placeholder="Apellido Materno">
+            <input formControlName="ap_materno" type="text" class="form-control" id="ap-materno"
+                placeholder="Apellido Materno">
             <small id="ap-materno" class="form-text text-muted">Apellido que aparecera en la lista del curso</small>
         </div>
         <div class="form-group">
@@ -22,25 +24,36 @@
         </div>
         <div class="form-group">
             <label for="contrasena">Contraseña</label>
-            <input formControlName="contrasena" type="password" class="form-control" id="contrasena" placeholder="Contraseña">
+            <input formControlName="contrasena" type="password" class="form-control" id="contrasena"
+                placeholder="Contraseña">
         </div>
         <div class="form-group">
             <label for="confirma-contrasena">Confirma Contraseña</label>
-            <input formControlName="contrasena2" type="password" class="form-control" id="confirma-contrasena" placeholder="Confirma Contraseña">
+            <input formControlName="contrasena2" type="password" class="form-control" id="confirma-contrasena"
+                placeholder="Confirma Contraseña">
         </div>
         <div class="form-group">
             <label for="telefono">Telefono:</label>
-            <input formControlName="telefono" type="number" class="form-control" id="telefono" placeholder="Numero de contacto">
+            <input formControlName="telefono" type="number" class="form-control" id="telefono"
+                placeholder="Numero de contacto">
             <small id="numero" class="form-text text-muted">Numero de contacto</small>
         </div>
         <div class="form-group">
             <label for="sexo">Sexo:</label>
             <select formControlName="sexo" id="sexo" class="form-control">
-                <option>Hombre</option>
-                <option>Mujer</option>
+                <option value="Hombre" selected>Hombre</option>
+                <option value="Mujer">Mujer</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Registrarse</button>
+        <div class="row">
+            <div class="col-6">
+                <button type="submit" class="btn btn-block btn-dark">Registrarse</button>
+            </div>
+            <div class="col-6">
+                <button [routerLink]="['/inicioSesion']" class="btn btn-block btn-dark">Ingresar</button>
+                <small class="form-text text-muted">Si ya tienes cuenta ingresa.</small>
+            </div>
+        </div>
         <br><br>
     </form>
 </div>

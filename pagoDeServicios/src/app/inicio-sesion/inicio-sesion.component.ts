@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SesionUsuarioService } from '../servicios/sesion-usuario/sesion-usuario.service';
+import { AuthenticationService } from '../servicios/autenticacion/authentication.service';
+import { LoginObject } from "../servicios/autenticacion/login-object.model";
+import { StorageService } from "../core/services/storage.service";
+import { Session } from "../core/models/session.model";
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -9,26 +13,39 @@ import { SesionUsuarioService } from '../servicios/sesion-usuario/sesion-usuario
   styleUrls: ['./inicio-sesion.component.css']
 })
 export class InicioSesionComponent implements OnInit {
-  formulario: FormGroup;
+  public loginForm: FormGroup;
+  public submitted: Boolean = false;
+  public error: {code: number, message: string} = null;
 
-  constructor(private frmBuilder: FormBuilder, private router: Router, private sesionUsuario:SesionUsuarioService){
-    this.formulario = this.frmBuilder.group({
-      correo:["",[Validators.required, Validators.pattern("[^@]*@[^@]*")]],
-      contrasena:["", Validators.required]
+  constructor(private frmBuilder: FormBuilder,
+              private authenticationService: AuthenticationService,
+              private router: Router, 
+              private storageService: StorageService,
+              private sesionUsuario:SesionUsuarioService){ }
+
+  ngOnInit() {
+    this.loginForm = this.frmBuilder.group({
+      correo:['',[Validators.required, Validators.pattern("[^@]*@[^@]*")]],
+      contrasena:['', Validators.required]
     });
   }
 
-  ngOnInit() {
+  onSubmit(){
+    this.submitted = true;
+    this.error = null;
+    if(this.loginForm.valid){
+      //console.log(this.loginForm.value);
+      this.authenticationService.login(new LoginObject(this.loginForm.value)).subscribe(
+        data => this.correctLogin(data),
+        error => {
+          this.error = error;
+        }
+      )
+    }
   }
 
-  onSubmit(formulario){
-    if(this.sesionUsuario.login(formulario.value.correo, formulario.value.contrasena) == 1){
-      this.router.navigate(['/cursos']);
-    }else if(this.sesionUsuario.login(formulario.value.correo, formulario.value.contrasena)){
-      this.router.navigate(['/comprobantes']);
-    }
-    else{
-      alert("Correo o contreseña incorrectos!");
-    }
+  private correctLogin(data: Session){
+    this.storageService.setCurrentSession(data);
+    this.router.navigate(['/home']);
   }
 }
