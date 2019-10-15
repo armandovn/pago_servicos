@@ -12,7 +12,7 @@
     <div *ngIf="inscripcion" class="subir-archivo">
       <label for="exampleFormControlFile">Subir comprobante de pago:</label>
       <input type="file" class="form-control-file" id="exampleFormControlFile">
-      <button class="btn btn-primary">Enviar comprobante</button>
+      <button (click)="enviarComprobante()" class="btn btn-primary">Enviar comprobante</button>
     </div>
   </div>
 </div>

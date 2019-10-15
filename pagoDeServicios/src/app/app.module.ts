@@ -16,6 +16,8 @@ import { SesionUsuarioService } from './servicios/sesion-usuario/sesion-usuario.
 
 // Routing
 import { Routing } from './app-routing.module';
+import { ComprobantesComponent } from './comprobantes/comprobantes.component';
+import { ComprobanteComponent } from './comprobante/comprobante.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { Routing } from './app-routing.module';
     InfounidadComponent,
     InicioSesionComponent,
     TarjetaCursoComponent,
-    CursosComponent
+    CursosComponent,
+    ComprobantesComponent,
+    ComprobanteComponent
   ],
   imports: [
     BrowserModule,

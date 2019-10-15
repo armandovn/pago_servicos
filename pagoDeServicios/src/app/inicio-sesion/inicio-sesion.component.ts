@@ -22,9 +22,12 @@ export class InicioSesionComponent implements OnInit {
   }
 
   onSubmit(formulario){
-    if(this.sesionUsuario.login(formulario.value.correo, formulario.value.contrasena)){
+    if(this.sesionUsuario.login(formulario.value.correo, formulario.value.contrasena) == 1){
       this.router.navigate(['/cursos']);
-    }else{
+    }else if(this.sesionUsuario.login(formulario.value.correo, formulario.value.contrasena)){
+      this.router.navigate(['/comprobantes']);
+    }
+    else{
       alert("Correo o contreseña incorrectos!");
     }
   }

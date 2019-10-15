@@ -64,4 +64,8 @@ export class TarjetaCursoComponent implements OnInit {
     doc.text("Se describiran los temarios de cada curso!",6,3);
     doc.save('temario'+this.curso.titulo+'.pdf');
   }
+
+  enviarComprobante(){
+    this.inscripcion = !this.inscripcion;
+  }
 }
