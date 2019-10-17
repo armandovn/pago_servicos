@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SesionUsuarioService } from '../servicios/sesion-usuario/sesion-usuario.service';
 import { CursosService } from '../servicios/cursos/cursos.service';
 import { StorageService } from "../core/services/storage.service";
 import { User } from "../core/models/user.model";

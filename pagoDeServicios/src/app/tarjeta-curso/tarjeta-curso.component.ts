@@ -1,6 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 // Libreria utilizada para la generacion de PDF's
 import * as jsPDF from 'jspdf';
+import { Router } from '@angular/router';
+
+// Sesion
+import { StorageService } from "../core/services/storage.service";
+import { User } from "../core/models/user.model";
 
 @Component({
   selector: 'app-tarjeta-curso',
@@ -14,10 +19,17 @@ export class TarjetaCursoComponent implements OnInit {
   inscripcion: boolean = false;
 
   protected estado1: Boolean = false;
-
-  constructor() { }
+  public user: User;
+  
+  constructor(private storageService: StorageService,
+              private router: Router) { }
 
   ngOnInit() {
+    this.user = this.storageService.getCurrentUser();
+  }
+  inscribirse() {
+    if (this.user) {this.descargarFormatoInscripcion()}
+    else {this.router.navigate(['/registro']);}
   }
 
   descargarFormatoInscripcion(){

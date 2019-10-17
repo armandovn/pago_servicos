@@ -13,7 +13,6 @@ import { TarjetaCursoComponent } from './tarjeta-curso/tarjeta-curso.component';
 import { CursosComponent } from './cursos/cursos.component';
 
 // Services
-import { SesionUsuarioService } from './servicios/sesion-usuario/sesion-usuario.service';
 
 // Routing
 import { Routing } from './app-routing.module';
@@ -22,8 +21,6 @@ import { ComprobanteComponent } from './comprobante/comprobante.component';
 
 // Core
 import {CoreModule} from "./core/core.module";
-import { CursosSinLogInComponent } from './cursos-sin-log-in/cursos-sin-log-in.component';
-import { TarjetaCursoSinLogInComponent } from './tarjeta-curso-sin-log-in/tarjeta-curso-sin-log-in.component';
 
 @NgModule({
   declarations: [
@@ -35,9 +32,7 @@ import { TarjetaCursoSinLogInComponent } from './tarjeta-curso-sin-log-in/tarjet
     TarjetaCursoComponent,
     CursosComponent,
     ComprobantesComponent,
-    ComprobanteComponent,
-    CursosSinLogInComponent,
-    TarjetaCursoSinLogInComponent
+    ComprobanteComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +42,7 @@ import { TarjetaCursoSinLogInComponent } from './tarjeta-curso-sin-log-in/tarjet
     Routing,
     ReactiveFormsModule
   ],
-  providers: [SesionUsuarioService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

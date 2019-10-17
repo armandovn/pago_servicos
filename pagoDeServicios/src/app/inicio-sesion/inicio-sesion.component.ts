@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SesionUsuarioService } from '../servicios/sesion-usuario/sesion-usuario.service';
 import { AuthenticationService } from '../servicios/autenticacion/authentication.service';
 import { LoginObject } from "../servicios/autenticacion/login-object.model";
 import { StorageService } from "../core/services/storage.service";
@@ -20,8 +19,7 @@ export class InicioSesionComponent implements OnInit {
   constructor(private frmBuilder: FormBuilder,
               private authenticationService: AuthenticationService,
               private router: Router, 
-              private storageService: StorageService,
-              private sesionUsuario:SesionUsuarioService){ }
+              private storageService: StorageService){ }
 
   ngOnInit() {
     this.loginForm = this.frmBuilder.group({

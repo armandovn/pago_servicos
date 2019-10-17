@@ -4,5 +4,5 @@
         <app-tarjeta-curso [curso]="curso"></app-tarjeta-curso>
         </div>
     </div>
-    <button class="btn btn-block btn-dark" (click)="logout()">Log out</button>
+    <button *ngIf="user != null" class="btn btn-block btn-dark" (click)="logout()">Log out</button>
 </div>
