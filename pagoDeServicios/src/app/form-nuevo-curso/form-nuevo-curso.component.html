@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="newCourseForm">
+                <form [formGroup]="nuevoCursoForm" (submit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="titulo_curso">Titulo curso: </label>
+                        <input formControlName="titulo_curso" type="text" [(ngModel)]="titulo_curso"
+                            class="form-control" id="titulo_curso" placeholder="Titulo curso">
+                        <small id="titulo_curso" class="form-text text-muted">Titulo del curso que aparecera en la
+                            tarjeta.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion_curso">Descripcion curso: </label>
+                        <textarea name="descripcion_curso" formControlName="descripcion_curso" id="descripcion_curso" [(ngModel)]="descripcion_curso"
+                            class="form-control" cols="20" rows="8" placeholder="Descripcion curso"></textarea>
+                        <small id="descripcion_curso" class="form-text text-muted">Descripcion del curso que aparecera
+                            en la
+                            tarjeta.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlFile">Subir imagen del curso</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile" formControlName="imagen_seleccionada"
+                            (change)="onFileChange($event)" #fileInput>
+                    </div>
+                    <button class="btn btn-block btn-primary">Crear nuevo curso</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-6">
+            <h3>Previsualizacion del curso: </h3>
+            <div class="card" style="width: 18rem;">
+                <img src="data:image/png;base64,{{ imagen_seleccionada }}" class="card-img-top" alt="Imagen curso">
+                <div class="card-body">
+                    <h5 class="card-title">{{ titulo_curso }}</h5>
+                    <p class="card-text">{{ descripcion_curso }}</p>
+                    <a href="#" class="card-link">Inscribirse</a>
+                    <a href="#" class="card-link">Temario</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

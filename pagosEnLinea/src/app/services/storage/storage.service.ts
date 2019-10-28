@@ -1,10 +1,12 @@
-import {Injectable} from "@angular/core";
-import { Router } from '@angular/router';
-import {Session} from "../models/session.model";
-import {User} from "../models/user.model";
+import { Injectable } from '@angular/core';
+import { Session } from '../../models/session.model';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
+import { User } from '../../models/user.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class StorageService {
 
   private currentSession$ = new Subject<Session>();
@@ -56,9 +58,3 @@ export class StorageService {
     this.currentSession$.next(this.currentSession);
   }
 }
-
-
-
-
-
-

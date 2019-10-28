@@ -1,0 +1,35 @@
+- Agregar el nombre de usuario en el header cuando inicies sesion.
+- Agregar notificaciones de comprobantes pendientes en header de usuario administrador, con esto
+  el usuario que administra sabra que tiene pendientes autorizaciones.
+- Agregar notificaciones en la vista de inscripcion curso para notificarle al usuario que se ha
+  inscrito con exito al nuevo curso.
+- * Crear la vista de cursos inscritos de cada usuario.
+- Vista para que el administrador consulte la informacion de cada curso:
+            - instructor
+            - alumnos inscritos
+            - horario, etc.
+- AL inscribirse al alumno pdora saber la ubicacion de su curso.
+- Estudiar directivas y como usarla.
+
+Componentes que necesitamos hasta ahora:
+- Barra de navegacion *
+- Footer
+- Cursos *
+- Autorizacion cursos *
+- Cursos de cada usurio *
+- Formualario de registro
+- Formulario de login 
+- Creacion de un nuevo curso
+- Consulta informacion de cursos
+- Perfil (Editar datos)
+
+Organizacion del proyecto:
+Lo dividiremos en 4 secciones hasta este momento:
+- Components:
+    Components lo divideremos en otras mas:
+    - header:
+    - body:
+    - footer:
+- Services
+- Pipes
+- Models

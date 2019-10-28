@@ -27,6 +27,7 @@ export class TarjetaCursoComponent implements OnInit {
   ngOnInit() {
     this.user = this.storageService.getCurrentUser();
   }
+  
   inscribirse() {
     if (this.user) {this.descargarFormatoInscripcion()}
     else {this.router.navigate(['/registro']);}

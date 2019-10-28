@@ -21,6 +21,7 @@ import { ComprobanteComponent } from './comprobante/comprobante.component';
 
 // Core
 import {CoreModule} from "./core/core.module";
+import { FormNuevoCursoComponent } from './form-nuevo-curso/form-nuevo-curso.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {CoreModule} from "./core/core.module";
     TarjetaCursoComponent,
     CursosComponent,
     ComprobantesComponent,
-    ComprobanteComponent
+    ComprobanteComponent,
+    FormNuevoCursoComponent
   ],
   imports: [
     BrowserModule,

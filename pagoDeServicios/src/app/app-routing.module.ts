@@ -5,6 +5,7 @@ import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { ComprobantesComponent } from './comprobantes/comprobantes.component';
 import { AuthorizatedGuard } from "./core/guards/authorizated.guard";
+import { FormNuevoCursoComponent } from './form-nuevo-curso/form-nuevo-curso.component'
 
 const routes: Routes = [
   { path: 'registro', component: FormularioRegistroComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'home', component: CursosComponent, canActivate: [ AuthorizatedGuard ]},
   { path: 'comprobantes', component: ComprobantesComponent },
   { path: 'cursos', component: CursosComponent },
+  { path: 'nuevoCurso', component: FormNuevoCursoComponent },
   { path: '', redirectTo: '/cursos', pathMatch: 'full' },
   { path: '**', redirectTo: '/cursos'}
 ];
