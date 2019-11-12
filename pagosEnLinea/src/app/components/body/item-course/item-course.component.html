@@ -1,0 +1,22 @@
+<div class="card text-center" style="width: 18rem;">
+    <img src="{{ course.image }}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{ course.title }}</h5>
+        <p class="card-text">
+            <span>Profesor:</span>
+            <br>{{ course.teacher }}
+            <br><br>{{ course.description }}</p>
+        <p>Lugares disponibles: {{ course.places_available }}</p>
+        <a class="card-link" (click)="inscribirse()">Inscribirse</a>
+        <!-- <a [routerLink]="['/inicioSesion']" class="card-link" (click)="descargarPDF()">Inscribirse</a> -->
+        <!-- Al dar click en inscribirse angular debera validar si el usuario ha iniciado sesion o no
+              si no ha inicia sesion debera aparecer un mensaje de inicio de sesion, si ya inicio sesion
+              debera seguir con el proceso de inscripcion.-->
+        <a href="{{ course.sumary }}" class="card-link" target="_blank">Temario</a>
+        <div *ngIf="inscripcion" class="subir-archivo">
+            <label for="exampleFormControlFile">Subir comprobante de pago:</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile">
+            <button (click)="enviarComprobante()" class="btn btn-primary">Enviar comprobante</button>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,11 @@
-<p>courses works!</p>
+<!-- Component that list all courses in the database-->
+<div class="container contenedor-padre">
+    <div class="row">
+        <div class="col-lg-4 col-sm-2" *ngFor="let course of courses" >
+            <app-item-course 
+                [course]="course" 
+            ></app-item-course>
+        </div>
+    </div>
+    <!--<button *ngIf="user != null" class="btn btn-block btn-dark" (click)="logout()">Log out</button>-->
+</div>

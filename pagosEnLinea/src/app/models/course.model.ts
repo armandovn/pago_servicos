@@ -1,8 +1,9 @@
 export class Course {
     public id: number;
-    public name: string;
-    public surname: string;
-    public email: string;
-    public username: string;
-    public password?: string;
+    public image: string;
+    public title: string;
+    public description: string;
+    public places_available: number;
+    public teacher: string;
+    public sumary: string;
 }

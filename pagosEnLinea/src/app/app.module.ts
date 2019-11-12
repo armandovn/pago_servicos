@@ -1,6 +1,12 @@
+// angular imports
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+import { HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// routing
+import { Routing } from './app-routing.module';
 
 // body components
 import { BodyModule } from './components/body/body.module';
@@ -22,7 +28,11 @@ import { ServicesModule } from './services/services.module';
     BrowserModule,
     FooterModule,
     HeaderModule,
-    BodyModule
+    BodyModule,
+    Routing,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [ServicesModule],
   bootstrap: [AppComponent]

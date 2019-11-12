@@ -10,6 +10,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 import { CourseInfoComponent } from './course-info/course-info.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ItemCourseComponent } from './item-course/item-course.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProfileComponent } from './profile/profile.component';
     RegisterFormComponent,
     LoginFormComponent,
     CourseInfoComponent,
-    ProfileComponent
+    ProfileComponent,
+    ItemCourseComponent
   ],
   imports: [
     CommonModule
