@@ -9,26 +9,42 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routing } from './app-routing.module';
 
 // body components
-import { BodyModule } from './components/body/body.module';
+import { CourseInfoComponent } from './components/body/course-info/course-info.component';
+import { CoursesComponent } from './components/body/courses/courses.component';
+import { ItemCourseComponent } from './components/body/item-course/item-course.component';
+import { LoginFormComponent } from './components/body/login-form/login-form.component';
+import { NewCourseFormComponent } from './components/body/new-course-form/new-course-form.component';
+import { NewUserFormComponent } from './components/body/new-user-form/new-user-form.component';
+import { ProfileComponent } from './components/body/profile/profile.component';
+import { RegisterFormComponent } from './components/body/register-form/register-form.component';
+import { VouchersComponent } from './components/body/vouchers/vouchers.component';
 
 // header components
-import { HeaderModule } from './components/header/header.module';
+import { NavBarComponent } from './components/header/nav-bar/nav-bar.component';
 
 // footer components
-import { FooterModule } from './components/footer/footer.module';
+import { FooterComponent } from './components/footer/footer/footer.component';
 
 // services
 import { ServicesModule } from './services/services.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FooterComponent,
+    CourseInfoComponent,
+    CoursesComponent,
+    ItemCourseComponent,
+    LoginFormComponent,
+    NewCourseFormComponent,
+    NewUserFormComponent,
+    ProfileComponent,
+    RegisterFormComponent,
+    VouchersComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
-    FooterModule,
-    HeaderModule,
-    BodyModule,
     Routing,
     ReactiveFormsModule,
     FormsModule,
