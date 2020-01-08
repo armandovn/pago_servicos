@@ -1,3 +1,8 @@
+Pasos a seguir para poder concluir con el proyecto de pago de cursos en linea:
+- Definir con base en otros sistemas la base de datos en su forma final.
+- Construir el API Rest para las peticiones y el sistema.
+- Construir el front de la pagina.
+
 - Agregar el nombre de usuario en el header cuando inicies sesion.
 - Agregar notificaciones de comprobantes pendientes en header de usuario administrador, con esto
   el usuario que administra sabra que tiene pendientes autorizaciones.
